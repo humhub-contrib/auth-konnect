@@ -16,6 +16,17 @@ class KonnectAuth extends OpenIdConnect
 
     /**
      * @inheritdoc
+     * @notice not fully supported until HumHub 1.8.
+     */
+    public $validateJws = false;
+
+    /**
+     * @inheritdoc
+     */
+    public $scope = 'openid email profile';
+
+    /**
+     * @inheritdoc
      */
     protected function defaultViewOptions()
     {
@@ -33,25 +44,10 @@ class KonnectAuth extends OpenIdConnect
     protected function defaultNormalizeUserAttributeMap()
     {
         return [
-            'username' => 'displayName',
-            'firstname' => function ($attributes) {
-                if (!isset($attributes['given_name'])) {
-                    return '';
-                }
-
-                return $attributes['given_name'];
-            },
-            'lastname' => function ($attributes) {
-                if (!isset($attributes['family_name'])) {
-                    return '';
-                }
-
-                return $attributes['family_name'];
-            },
-            'title' => 'tagline',
-            'email' => function ($attributes) {
-                return $attributes['email'];
-            },
+            'id' => 'sub',
+            'username' => 'preferred_username',
+            'firstname' => 'given_name',
+            'lastname' => 'family_name',
         ];
     }
 }
