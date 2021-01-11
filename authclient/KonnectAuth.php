@@ -23,11 +23,6 @@ class KonnectAuth extends OpenIdConnect
     /**
      * @inheritdoc
      */
-    public $scope = 'openid email profile';
-
-    /**
-     * @inheritdoc
-     */
     protected function defaultViewOptions()
     {
         return [
@@ -37,6 +32,11 @@ class KonnectAuth extends OpenIdConnect
             'buttonBackgroundColor' => '#e0492f',
         ];
     }
+
+    /**
+     * @inheritdoc
+     */
+    public $scope = 'openid email profile';
 
     /**
      * @inheritdoc
