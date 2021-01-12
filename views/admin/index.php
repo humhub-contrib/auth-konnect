@@ -28,6 +28,10 @@ use yii\helpers\Html;
             <?= $form->field($model, 'clientSecret'); ?>
 
             <br/>
+            <?= $form->field($model, 'issuerUrl')->textInput(); ?>
+            <?= $form->field($model, 'cssIcon')->textInput(); ?>
+
+            <br/>
             <?= $form->field($model, 'redirectUri')->textInput(['readonly' => true]); ?>
             <br/>
 

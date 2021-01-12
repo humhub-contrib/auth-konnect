@@ -2,6 +2,8 @@
 
 namespace humhubContrib\auth\konnect\authclient;
 
+use humhubContrib\auth\konnect\Module;
+use Yii;
 use yii\authclient\OpenIdConnect;
 
 /**
@@ -12,13 +14,27 @@ class KonnectAuth extends OpenIdConnect
     /**
      * @var string OpenID Issuer (provider) base URL, e.g. `https://example.com`.
      */
-    public $issuerUrl = "https://kopano.dev";
+    public $issuerUrl;
 
     /**
      * @inheritdoc
      * @notice not fully supported until HumHub 1.8.
      */
     public $validateJws = false;
+
+    /**
+     * @var string Kopano Css Icon
+     */
+    public $cssIcon;
+
+    public function __construct()
+    {
+        /** @var Module $module */
+        $module = Yii::$app->getModule('auth-konnect');
+        $this->issuerUrl = $module->settings->get('issuerUrl');
+        $this->cssIcon = $module->settings->get('cssIcon');
+        parent::__construct();
+    }
 
     /**
      * @inheritdoc
@@ -28,7 +44,7 @@ class KonnectAuth extends OpenIdConnect
         return [
             'popupWidth' => 860,
             'popupHeight' => 480,
-            'cssIcon' => 'fa fa-plug',
+            'cssIcon' => $this->cssIcon,
             'buttonBackgroundColor' => '#e0492f',
         ];
     }

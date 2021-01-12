@@ -33,12 +33,22 @@ class ConfigureForm extends Model
     public $redirectUri;
 
     /**
+     * @var string Kopano Connect Issuer URL
+     */
+    public $issuerUrl;
+
+    /**
+     * @var string Kopano Css Icon
+     */
+    public $cssIcon;
+
+    /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['clientId'], 'required'],
+            [['clientId', 'issuerUrl', 'cssIcon'], 'required'],
             [['clientSecret'], 'safe'],
             [['enabled'], 'boolean'],
         ];
@@ -53,6 +63,8 @@ class ConfigureForm extends Model
             'enabled' => Yii::t('AuthKonnectModule.base', 'Enabled'),
             'clientId' => Yii::t('AuthKonnectModule.base', 'Client ID'),
             'clientSecret' => Yii::t('AuthKonnectModule.base', 'Client secret'),
+            'issuerUrl' => Yii::t('AuthKonnectModule.base', 'Issuer Url'),
+            'cssIcon' => Yii::t('AuthKonnectModule.base', 'Kopano Css Icon (FontAwesome)'),
         ];
     }
 
@@ -80,6 +92,8 @@ class ConfigureForm extends Model
         $this->clientSecret = $settings->get('clientSecret');
 
         $this->redirectUri = Url::to(['/user/auth/external', 'authclient' => 'konnect'], true);
+        $this->issuerUrl = $settings->get('issuerUrl');
+        $this->cssIcon = $settings->get('cssIcon');
     }
 
     /**
@@ -93,6 +107,8 @@ class ConfigureForm extends Model
         $module->settings->set('enabled', (boolean)$this->enabled);
         $module->settings->set('clientId', $this->clientId);
         $module->settings->set('clientSecret', $this->clientSecret);
+        $module->settings->set('issuerUrl', $this->issuerUrl);
+        $module->settings->set('cssIcon', $this->cssIcon);
 
         return true;
     }
