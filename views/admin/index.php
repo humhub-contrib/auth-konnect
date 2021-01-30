@@ -2,6 +2,7 @@
 /* @var $this \humhub\modules\ui\view\components\View */
 /* @var $model \humhubContrib\auth\konnect\models\ConfigureForm */
 
+use humhub\modules\ui\form\widgets\IconPicker;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -29,7 +30,9 @@ use yii\helpers\Html;
 
             <br/>
             <?= $form->field($model, 'issuerUrl')->textInput(); ?>
-            <?= $form->field($model, 'cssIcon')->textInput(); ?>
+<!--            <?//= $form->field($model, 'cssIcon')->textInput(); ?>-->
+            <?= $form->field($model, 'cssIcon')->widget(IconPicker::class); ?>
+<!--            <?//= $form->field($model, 'icon')->widget(IconPicker::class); ?>-->
 
             <br/>
             <?= $form->field($model, 'redirectUri')->textInput(['readonly' => true]); ?>

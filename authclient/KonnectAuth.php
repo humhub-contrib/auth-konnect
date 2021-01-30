@@ -44,7 +44,7 @@ class KonnectAuth extends OpenIdConnect
         return [
             'popupWidth' => 860,
             'popupHeight' => 480,
-            'cssIcon' => $this->cssIcon,
+            'cssIcon' => 'fa fa-' . $this->cssIcon,
             'buttonBackgroundColor' => '#e0492f',
         ];
     }
