@@ -38,14 +38,6 @@ class KonnectAuth extends OpenIdConnect
         $module = Yii::$app->getModule('auth-konnect');
 
         $this->issuerUrl = $module->settings->get('issuerUrl');
-        Yii::$app->cache->set('issuerUrl', $this->issuerUrl);
-        Yii::$app->cache->set('issuer', $this->issuerUrl);
-        Yii::error(777);
-        Yii::error(Yii::$app->cache);
-//        if($this->issuerUrl){
-//
-//        }
-
         $this->cssIcon = $module->settings->get('cssIcon');
         $this->buttonLabel = $module->settings->get('buttonLabel');
         parent::__construct();
