@@ -27,12 +27,27 @@ class KonnectAuth extends OpenIdConnect
      */
     public $cssIcon;
 
+    /**
+     * @var string Kopano button label
+     */
+    public $buttonLabel;
+
     public function __construct()
     {
         /** @var Module $module */
         $module = Yii::$app->getModule('auth-konnect');
+
         $this->issuerUrl = $module->settings->get('issuerUrl');
+        Yii::$app->cache->set('issuerUrl', $this->issuerUrl);
+        Yii::$app->cache->set('issuer', $this->issuerUrl);
+        Yii::error(777);
+        Yii::error(Yii::$app->cache);
+//        if($this->issuerUrl){
+//
+//        }
+
         $this->cssIcon = $module->settings->get('cssIcon');
+        $this->buttonLabel = $module->settings->get('buttonLabel');
         parent::__construct();
     }
 
@@ -46,6 +61,7 @@ class KonnectAuth extends OpenIdConnect
             'popupHeight' => 480,
             'cssIcon' => 'fa fa-' . $this->cssIcon,
             'buttonBackgroundColor' => '#e0492f',
+            'buttonLabel' => $this->buttonLabel,
         ];
     }
 
@@ -65,5 +81,12 @@ class KonnectAuth extends OpenIdConnect
             'firstname' => 'given_name',
             'lastname' => 'family_name',
         ];
+    }
+
+    /**
+     * @return string service title.
+     */
+    public function getTitle(){
+        return $this->buttonLabel;
     }
 }

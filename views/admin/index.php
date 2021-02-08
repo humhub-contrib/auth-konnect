@@ -30,9 +30,11 @@ use yii\helpers\Html;
 
             <br/>
             <?= $form->field($model, 'issuerUrl')->textInput(); ?>
-<!--            <?//= $form->field($model, 'cssIcon')->textInput(); ?>-->
+
             <?= $form->field($model, 'cssIcon')->widget(IconPicker::class); ?>
-<!--            <?//= $form->field($model, 'icon')->widget(IconPicker::class); ?>-->
+
+            <?= $form->field($model, 'buttonLabel')->textInput(); ?>
+
 
             <br/>
             <?= $form->field($model, 'redirectUri')->textInput(['readonly' => true]); ?>
