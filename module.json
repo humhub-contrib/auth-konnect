@@ -4,7 +4,7 @@
     "description": "Integrating Kopano Connect Sign-In (OAuth 2.0).",
     "keywords": [
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homepage": "https://github.com/humhub-contrib/auth-konnect",
     "humhub": {
         "minVersion": "1.6"
