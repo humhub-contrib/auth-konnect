@@ -54,7 +54,8 @@ class ConfigureForm extends Model
     {
         return [
             [['clientId', 'issuerUrl', 'cssIcon', 'buttonLabel'], 'required'],
-            [['clientSecret', 'issuerUrl'], 'safe'],
+            [['clientSecret'], 'safe'],
+            [['issuerUrl'], 'url'],
             [['enabled'], 'boolean'],
         ];
     }
@@ -96,7 +97,6 @@ class ConfigureForm extends Model
         $this->enabled = (boolean)$settings->get('enabled');
         $this->clientId = $settings->get('clientId');
         $this->clientSecret = $settings->get('clientSecret');
-
         $this->redirectUri = Url::to(['/user/auth/external', 'authclient' => 'konnect'], true);
         $this->issuerUrl = $settings->get('issuerUrl');
         $this->cssIcon = $settings->get('cssIcon');
@@ -117,7 +117,7 @@ class ConfigureForm extends Model
         $module->settings->set('issuerUrl', $this->issuerUrl);
         $module->settings->set('cssIcon', $this->cssIcon);
         $module->settings->set('buttonLabel', $this->buttonLabel);
-
+        Yii::$app->cache->flush();
         return true;
     }
 
