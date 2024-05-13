@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.1.0 (Unreleased)
+-------------------------
+- Fix: Update module resources path
+
 1.0.1 (February 9, 2021)
 ------------------------
 - Enh: Button label/icon can be set individually
