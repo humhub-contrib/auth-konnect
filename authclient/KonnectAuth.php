@@ -78,7 +78,8 @@ class KonnectAuth extends OpenIdConnect
     /**
      * @return string service title.
      */
-    public function getTitle(){
+    public function getTitle()
+    {
         return $this->buttonLabel;
     }
 }
