@@ -13,7 +13,7 @@ use humhubContrib\auth\konnect\Module;
 class ConfigureForm extends Model
 {
     /**
-     * @var boolean Enable this authclient
+     * @var bool Enable this authclient
      */
     public $enabled;
 
@@ -94,7 +94,7 @@ class ConfigureForm extends Model
 
         $settings = $module->settings;
 
-        $this->enabled = (boolean)$settings->get('enabled');
+        $this->enabled = (bool)$settings->get('enabled');
         $this->clientId = $settings->get('clientId');
         $this->clientSecret = $settings->get('clientSecret');
         $this->redirectUri = Url::to(['/user/auth/external', 'authclient' => 'konnect'], true);
@@ -111,7 +111,7 @@ class ConfigureForm extends Model
         /** @var Module $module */
         $module = Yii::$app->getModule('auth-konnect');
 
-        $module->settings->set('enabled', (boolean)$this->enabled);
+        $module->settings->set('enabled', (bool)$this->enabled);
         $module->settings->set('clientId', $this->clientId);
         $module->settings->set('clientSecret', $this->clientSecret);
         $module->settings->set('issuerUrl', $this->issuerUrl);
@@ -126,7 +126,7 @@ class ConfigureForm extends Model
      */
     public static function getInstance()
     {
-        $config = new static;
+        $config = new static();
         $config->loadSettings();
 
         return $config;

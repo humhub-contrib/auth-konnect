@@ -11,7 +11,6 @@ use humhubContrib\auth\konnect\models\ConfigureForm;
  */
 class AdminController extends Controller
 {
-
     /**
      * Render admin only page
      *
