@@ -1,6 +1,10 @@
 Changelog
 =========
 
+1.0.2 (Unreleased)
+-------------------------
+- Enh #6: Use PHP CS Fixer
+
 1.0.1 (February 9, 2021)
 ------------------------
 - Enh: Button label/icon can be set individually
