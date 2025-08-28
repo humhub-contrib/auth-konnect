@@ -21,7 +21,7 @@ class Events
             $authClientCollection->setClient('konnect', [
                 'class' => KonnectAuth::class,
                 'clientId' => ConfigureForm::getInstance()->clientId,
-                'clientSecret' => ConfigureForm::getInstance()->clientSecret
+                'clientSecret' => ConfigureForm::getInstance()->clientSecret,
             ]);
         }
     }

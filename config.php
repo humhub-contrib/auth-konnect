@@ -7,6 +7,6 @@ return [
     'class' => 'humhubContrib\auth\konnect\Module',
     'namespace' => 'humhubContrib\auth\konnect',
     'events' => [
-        [Collection::class, Collection::EVENT_AFTER_CLIENTS_SET, ['humhubContrib\auth\konnect\Events', 'onAuthClientCollectionInit']]
+        [Collection::class, Collection::EVENT_AFTER_CLIENTS_SET, ['humhubContrib\auth\konnect\Events', 'onAuthClientCollectionInit']],
     ],
 ];
