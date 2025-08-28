@@ -1,9 +1,9 @@
 <?php
-/* @var $this \humhub\modules\ui\view\components\View */
+/* @var $this \humhub\components\View */
 /* @var $model \humhubContrib\auth\konnect\models\ConfigureForm */
 
 use humhub\modules\ui\form\widgets\IconPicker;
-use yii\bootstrap\ActiveForm;
+use humhub\widgets\form\ActiveForm;
 use yii\helpers\Html;
 
 ?>
@@ -14,7 +14,7 @@ use yii\helpers\Html;
 
         <div class="panel-body">
             <p>
-                <?= Html::a(Yii::t('AuthKonnectModule.base', 'Kopano Connect Documentation'), 'https://documentation.kopano.io/user_manual_webapp//settings.html', ['class' => 'btn btn-primary pull-right btn-sm', 'target' => '_blank']); ?>
+                <?= Html::a(Yii::t('AuthKonnectModule.base', 'Kopano Connect Documentation'), 'https://documentation.kopano.io/user_manual_webapp//settings.html', ['class' => 'btn btn-primary float-end btn-sm', 'target' => '_blank']); ?>
                 <?= Yii::t('AuthKonnectModule.base', 'Please follow the Kopano Connect instructions to create the required <strong>OAuth client</strong> credentials.'); ?>
                 <br/>
             </p>
@@ -40,7 +40,7 @@ use yii\helpers\Html;
             <?= $form->field($model, 'redirectUri')->textInput(['readonly' => true]); ?>
             <br/>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <?= Html::submitButton(Yii::t('base', 'Save'), ['class' => 'btn btn-primary', 'data-ui-loader' => '']) ?>
             </div>
 
