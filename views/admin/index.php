@@ -17,7 +17,7 @@ use humhubContrib\auth\konnect\models\ConfigureForm;
             <p>
                 <?= Link::primary(Yii::t('AuthKonnectModule.base', 'Kopano Connect Documentation'))
                     ->link('https://documentation.kopano.io/user_manual_webapp//settings.html')
-                    ->blank()
+                    ->blank()->loader(false)
                     ->right()->sm() ?>
                 <?= Yii::t('AuthKonnectModule.base', 'Please follow the Kopano Connect instructions to create the required <strong>OAuth client</strong> credentials.'); ?>
                 <br/>
